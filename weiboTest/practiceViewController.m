@@ -7,12 +7,25 @@
 //
 
 #import "practiceViewController.h"
+#import "practiceWeiboInfo.h"
+
 
 @interface practiceViewController ()
 
 @end
 
 @implementation practiceViewController
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    return NO;//开始不允许跳转，只有当验证账号和密码正确可以进入后由登录代码执行切换
+}
+
+- (IBAction)btnLink:(id)sender {
+    [[practiceWeiboInfo getInstance] weiboObjInit];
+    [[practiceWeiboInfo getInstance] login];
+    [self performSegueWithIdentifier:@"afterLogin" sender:sender];
+}
 
 - (void)viewDidLoad
 {

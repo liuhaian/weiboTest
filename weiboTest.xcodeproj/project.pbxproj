@@ -21,6 +21,12 @@
 		F50702A918E31F8D0080F699 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028B18E31F8D0080F699 /* UIKit.framework */; };
 		F50702B118E31F8D0080F699 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F50702AF18E31F8D0080F699 /* InfoPlist.strings */; };
 		F50702B318E31F8D0080F699 /* weiboTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50702B218E31F8D0080F699 /* weiboTestTests.m */; };
+		F5FFCAE818E3D02C00353126 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFCADE18E3D02C00353126 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-deprecated-declarations"; }; };
+		F5FFCAE918E3D02C00353126 /* SinaWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5FFCAE018E3D02C00353126 /* SinaWeibo.bundle */; };
+		F5FFCAEA18E3D02C00353126 /* SinaWeibo.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFCAE218E3D02C00353126 /* SinaWeibo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5FFCAEB18E3D02C00353126 /* SinaWeiboAuthorizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFCAE418E3D02C00353126 /* SinaWeiboAuthorizeView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5FFCAEC18E3D02C00353126 /* SinaWeiboRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFCAE718E3D02C00353126 /* SinaWeiboRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5FFCAEF18E3F6E500353126 /* practiceWeiboInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFCAEE18E3F6E500353126 /* practiceWeiboInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,18 @@
 		F50702AE18E31F8D0080F699 /* weiboTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "weiboTestTests-Info.plist"; sourceTree = "<group>"; };
 		F50702B018E31F8D0080F699 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F50702B218E31F8D0080F699 /* weiboTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = weiboTestTests.m; sourceTree = "<group>"; };
+		F5FFCADD18E3D02C00353126 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		F5FFCADE18E3D02C00353126 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		F5FFCAE018E3D02C00353126 /* SinaWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SinaWeibo.bundle; sourceTree = "<group>"; };
+		F5FFCAE118E3D02C00353126 /* SinaWeibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeibo.h; sourceTree = "<group>"; };
+		F5FFCAE218E3D02C00353126 /* SinaWeibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeibo.m; sourceTree = "<group>"; };
+		F5FFCAE318E3D02C00353126 /* SinaWeiboAuthorizeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeiboAuthorizeView.h; sourceTree = "<group>"; };
+		F5FFCAE418E3D02C00353126 /* SinaWeiboAuthorizeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeiboAuthorizeView.m; sourceTree = "<group>"; };
+		F5FFCAE518E3D02C00353126 /* SinaWeiboConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeiboConstants.h; sourceTree = "<group>"; };
+		F5FFCAE618E3D02C00353126 /* SinaWeiboRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeiboRequest.h; sourceTree = "<group>"; };
+		F5FFCAE718E3D02C00353126 /* SinaWeiboRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeiboRequest.m; sourceTree = "<group>"; };
+		F5FFCAED18E3F6E500353126 /* practiceWeiboInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = practiceWeiboInfo.h; sourceTree = "<group>"; };
+		F5FFCAEE18E3F6E500353126 /* practiceWeiboInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practiceWeiboInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +100,7 @@
 		F507027B18E31F8D0080F699 = {
 			isa = PBXGroup;
 			children = (
+				F5FFCADB18E3D02C00353126 /* sinaweibo_ios_sdk */,
 				F507028D18E31F8D0080F699 /* weiboTest */,
 				F50702AC18E31F8D0080F699 /* weiboTestTests */,
 				F507028618E31F8D0080F699 /* Frameworks */,
@@ -119,6 +138,8 @@
 				F507029D18E31F8D0080F699 /* practiceViewController.m */,
 				F507029F18E31F8D0080F699 /* Images.xcassets */,
 				F507028E18E31F8D0080F699 /* Supporting Files */,
+				F5FFCAED18E3F6E500353126 /* practiceWeiboInfo.h */,
+				F5FFCAEE18E3F6E500353126 /* practiceWeiboInfo.m */,
 			);
 			path = weiboTest;
 			sourceTree = "<group>";
@@ -150,6 +171,39 @@
 				F50702AF18E31F8D0080F699 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5FFCADB18E3D02C00353126 /* sinaweibo_ios_sdk */ = {
+			isa = PBXGroup;
+			children = (
+				F5FFCADC18E3D02C00353126 /* JSONKit */,
+				F5FFCADF18E3D02C00353126 /* SinaWeibo */,
+			);
+			path = sinaweibo_ios_sdk;
+			sourceTree = "<group>";
+		};
+		F5FFCADC18E3D02C00353126 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				F5FFCADD18E3D02C00353126 /* JSONKit.h */,
+				F5FFCADE18E3D02C00353126 /* JSONKit.m */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
+		F5FFCADF18E3D02C00353126 /* SinaWeibo */ = {
+			isa = PBXGroup;
+			children = (
+				F5FFCAE018E3D02C00353126 /* SinaWeibo.bundle */,
+				F5FFCAE118E3D02C00353126 /* SinaWeibo.h */,
+				F5FFCAE218E3D02C00353126 /* SinaWeibo.m */,
+				F5FFCAE318E3D02C00353126 /* SinaWeiboAuthorizeView.h */,
+				F5FFCAE418E3D02C00353126 /* SinaWeiboAuthorizeView.m */,
+				F5FFCAE518E3D02C00353126 /* SinaWeiboConstants.h */,
+				F5FFCAE618E3D02C00353126 /* SinaWeiboRequest.h */,
+				F5FFCAE718E3D02C00353126 /* SinaWeiboRequest.m */,
+			);
+			path = SinaWeibo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F50702A018E31F8D0080F699 /* Images.xcassets in Resources */,
+				F5FFCAE918E3D02C00353126 /* SinaWeibo.bundle in Resources */,
 				F507029218E31F8D0080F699 /* InfoPlist.strings in Resources */,
 				F507029B18E31F8D0080F699 /* Main.storyboard in Resources */,
 			);
@@ -250,8 +305,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5FFCAEA18E3D02C00353126 /* SinaWeibo.m in Sources */,
 				F507029418E31F8D0080F699 /* main.m in Sources */,
+				F5FFCAEB18E3D02C00353126 /* SinaWeiboAuthorizeView.m in Sources */,
+				F5FFCAEF18E3F6E500353126 /* practiceWeiboInfo.m in Sources */,
 				F507029E18E31F8D0080F699 /* practiceViewController.m in Sources */,
+				F5FFCAEC18E3D02C00353126 /* SinaWeiboRequest.m in Sources */,
+				F5FFCAE818E3D02C00353126 /* JSONKit.m in Sources */,
 				F507029818E31F8D0080F699 /* practiceAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +437,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "weiboTest/weiboTest-Prefix.pch";
 				INFOPLIST_FILE = "weiboTest/weiboTest-Info.plist";
@@ -390,6 +452,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "weiboTest/weiboTest-Prefix.pch";
 				INFOPLIST_FILE = "weiboTest/weiboTest-Info.plist";
@@ -457,6 +521,7 @@
 				F50702B818E31F8D0080F699 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F50702B918E31F8D0080F699 /* Build configuration list for PBXNativeTarget "weiboTestTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +530,7 @@
 				F50702BB18E31F8D0080F699 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
