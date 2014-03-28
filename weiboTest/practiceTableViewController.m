@@ -7,8 +7,7 @@
 //
 
 #import "practiceTableViewController.h"
-#import "practiceWeiboInfo.h"
-#import "practiceWeiboInfo.h"
+
 
 @interface practiceTableViewController ()
 
@@ -34,6 +33,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [practiceWeiboInfo getInstance].controller=self;
+    
     SinaWeibo *sinaweibo = [practiceWeiboInfo getInstance].weiboObj;
     [sinaweibo requestWithURL:@"statuses/user_timeline.json"
                        params:[NSMutableDictionary dictionaryWithObject:sinaweibo.userID forKey:@"uid"]
@@ -46,6 +47,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - practiceViewDelegate
+- (void)nextMove
+{
+    [self.tableView reloadData];
+}
+
 
 #pragma mark - Table view data source
 
@@ -69,6 +77,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"weiboCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    cell.textLabel.text=[[[practiceWeiboInfo getInstance].statuses objectAtIndex:(indexPath.row)] objectForKey:@"text"];
     
     return cell;
 }

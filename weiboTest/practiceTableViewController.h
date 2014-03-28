@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "practiceWeiboInfo.h"
 
-@interface practiceTableViewController : UITableViewController
+@interface practiceTableViewController : UITableViewController <practiceViewDelegate>
+
 
 @end

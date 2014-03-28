@@ -28,10 +28,10 @@
     [practiceWeiboInfo getInstance].controller=self;
 //    [self performSegueWithIdentifier:@"afterLogin" sender:sender];
 }
--(void)performSegue{
+
+-(void)nextMove{
     [self performSegueWithIdentifier:@"afterLogin" sender:self];
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

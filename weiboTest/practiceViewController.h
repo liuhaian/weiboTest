@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "practiceWeiboInfo.h"
 
+@protocol practiceViewDelegate;
+@interface practiceViewController : UIViewController <practiceViewDelegate>
 
-@interface practiceViewController : UIViewController
-
--(void)performSegue;
+-(void)nextMove;
 
 @end

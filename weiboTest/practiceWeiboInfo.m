@@ -58,7 +58,8 @@ static practiceWeiboInfo * instance = nil;
 {
     NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", sinaweibo.userID, sinaweibo.accessToken, sinaweibo.expirationDate,sinaweibo.refreshToken);
     if(controller!=nil){
-        [controller performSegue];
+        //        [controller performSegue];
+        [controller nextMove];
     }
 }
 
@@ -154,6 +155,11 @@ static practiceWeiboInfo * instance = nil;
     }
     
 //    [self resetButtons];
+    if(controller!=nil){
+        //        [controller performSegue];
+        [controller nextMove];
+    }
+
 }
 
 @end
