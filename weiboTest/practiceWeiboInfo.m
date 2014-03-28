@@ -12,7 +12,7 @@ static practiceWeiboInfo * instance = nil;
 
 @implementation practiceWeiboInfo
 
-@synthesize weiboObj,userInfo,statuses,postStatusText,postImageStatusText;
+@synthesize weiboObj,userInfo,statuses,postStatusText,postImageStatusText,controller;
 
 +(practiceWeiboInfo *)getInstance
 
@@ -30,7 +30,7 @@ static practiceWeiboInfo * instance = nil;
     return instance;
     
 }
--(SinaWeibo *)weiboObjInit
+-(void)weiboObjInit
 {
     weiboObj = [[SinaWeibo alloc] initWithAppKey:kAppKey appSecret:kAppSecret appRedirectURI:kAppRedirectURI andDelegate:instance];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -41,7 +41,7 @@ static practiceWeiboInfo * instance = nil;
         weiboObj.expirationDate = [sinaweiboInfo objectForKey:@"ExpirationDateKey"];
         weiboObj.userID = [sinaweiboInfo objectForKey:@"UserIDKey"];
     }
-    return weiboObj;
+
 }
 
 -(void)login
@@ -51,6 +51,35 @@ static practiceWeiboInfo * instance = nil;
     
     SinaWeibo *sinaweibo = [self weiboObj];
     [sinaweibo logIn];
+}
+#pragma mark - SinaWeibo Delegate
+
+- (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo
+{
+    NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", sinaweibo.userID, sinaweibo.accessToken, sinaweibo.expirationDate,sinaweibo.refreshToken);
+    if(controller!=nil){
+        [controller performSegue];
+    }
+}
+
+- (void)sinaweiboDidLogOut:(SinaWeibo *)sinaweibo
+{
+    NSLog(@"sinaweiboDidLogOut");
+}
+
+- (void)sinaweiboLogInDidCancel:(SinaWeibo *)sinaweibo
+{
+    NSLog(@"sinaweiboLogInDidCancel");
+}
+
+- (void)sinaweibo:(SinaWeibo *)sinaweibo logInDidFailWithError:(NSError *)error
+{
+    NSLog(@"sinaweibo logInDidFailWithError %@", error);
+}
+
+- (void)sinaweibo:(SinaWeibo *)sinaweibo accessTokenInvalidOrExpired:(NSError *)error
+{
+    NSLog(@"sinaweiboAccessTokenInvalidOrExpired %@", error);
 }
 
 #pragma mark - SinaWeiboRequest Delegate

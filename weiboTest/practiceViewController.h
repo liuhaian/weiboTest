@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "practiceWeiboInfo.h"
+
 
 @interface practiceViewController : UIViewController
+
+-(void)performSegue;
 
 @end

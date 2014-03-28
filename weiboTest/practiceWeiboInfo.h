@@ -26,6 +26,7 @@
 #endif
 
 @class SinaWeibo;
+@class practiceViewController;
 
 @interface practiceWeiboInfo : NSObject <SinaWeiboDelegate, SinaWeiboRequestDelegate>
 
@@ -34,8 +35,9 @@
     @property (nonatomic, strong) NSArray *statuses;
     @property (nonatomic, strong) NSString *postStatusText;
     @property (nonatomic, strong) NSString *postImageStatusText;
+    @property (nonatomic, strong) practiceViewController *controller;
 
--(SinaWeibo *)weiboObjInit;
+-(void)weiboObjInit;
 -(void)login;
 +(practiceWeiboInfo *)getInstance;
 

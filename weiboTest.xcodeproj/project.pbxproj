@@ -27,6 +27,7 @@
 		F5FFCAEB18E3D02C00353126 /* SinaWeiboAuthorizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFCAE418E3D02C00353126 /* SinaWeiboAuthorizeView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5FFCAEC18E3D02C00353126 /* SinaWeiboRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFCAE718E3D02C00353126 /* SinaWeiboRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5FFCAEF18E3F6E500353126 /* practiceWeiboInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFCAEE18E3F6E500353126 /* practiceWeiboInfo.m */; };
+		F5FFCAF218E46F1200353126 /* practiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFCAF118E46F1200353126 /* practiceTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		F5FFCAE718E3D02C00353126 /* SinaWeiboRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeiboRequest.m; sourceTree = "<group>"; };
 		F5FFCAED18E3F6E500353126 /* practiceWeiboInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = practiceWeiboInfo.h; sourceTree = "<group>"; };
 		F5FFCAEE18E3F6E500353126 /* practiceWeiboInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practiceWeiboInfo.m; sourceTree = "<group>"; };
+		F5FFCAF018E46F1100353126 /* practiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = practiceTableViewController.h; sourceTree = "<group>"; };
+		F5FFCAF118E46F1200353126 /* practiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practiceTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 				F507029618E31F8D0080F699 /* practiceAppDelegate.h */,
 				F507029718E31F8D0080F699 /* practiceAppDelegate.m */,
 				F507029918E31F8D0080F699 /* Main.storyboard */,
+				F5FFCAF018E46F1100353126 /* practiceTableViewController.h */,
+				F5FFCAF118E46F1200353126 /* practiceTableViewController.m */,
 				F507029C18E31F8D0080F699 /* practiceViewController.h */,
 				F507029D18E31F8D0080F699 /* practiceViewController.m */,
 				F507029F18E31F8D0080F699 /* Images.xcassets */,
@@ -308,6 +313,7 @@
 				F5FFCAEA18E3D02C00353126 /* SinaWeibo.m in Sources */,
 				F507029418E31F8D0080F699 /* main.m in Sources */,
 				F5FFCAEB18E3D02C00353126 /* SinaWeiboAuthorizeView.m in Sources */,
+				F5FFCAF218E46F1200353126 /* practiceTableViewController.m in Sources */,
 				F5FFCAEF18E3F6E500353126 /* practiceWeiboInfo.m in Sources */,
 				F507029E18E31F8D0080F699 /* practiceViewController.m in Sources */,
 				F5FFCAEC18E3D02C00353126 /* SinaWeiboRequest.m in Sources */,

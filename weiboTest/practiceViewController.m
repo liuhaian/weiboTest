@@ -7,7 +7,7 @@
 //
 
 #import "practiceViewController.h"
-#import "practiceWeiboInfo.h"
+
 
 
 @interface practiceViewController ()
@@ -24,7 +24,12 @@
 - (IBAction)btnLink:(id)sender {
     [[practiceWeiboInfo getInstance] weiboObjInit];
     [[practiceWeiboInfo getInstance] login];
-    [self performSegueWithIdentifier:@"afterLogin" sender:sender];
+    //Set controller so that when the request returns, it can transit.
+    [practiceWeiboInfo getInstance].controller=self;
+//    [self performSegueWithIdentifier:@"afterLogin" sender:sender];
+}
+-(void)performSegue{
+    [self performSegueWithIdentifier:@"afterLogin" sender:self];
 }
 
 - (void)viewDidLoad
