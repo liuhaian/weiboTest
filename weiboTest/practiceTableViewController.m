@@ -36,7 +36,7 @@
     [practiceWeiboInfo getInstance].controller=self;
     
     SinaWeibo *sinaweibo = [practiceWeiboInfo getInstance].weiboObj;
-    [sinaweibo requestWithURL:@"statuses/user_timeline.json"
+    [sinaweibo requestWithURL:@"statuses/home_timeline.json"
                        params:[NSMutableDictionary dictionaryWithObject:sinaweibo.userID forKey:@"uid"]
                    httpMethod:@"GET"
                      delegate:[practiceWeiboInfo getInstance]];
@@ -77,8 +77,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"weiboCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text=[[[practiceWeiboInfo getInstance].statuses objectAtIndex:(indexPath.row)] objectForKey:@"text"];
-    
+    NSDictionary *nsOBJRecord=[[practiceWeiboInfo getInstance].statuses objectAtIndex:(indexPath.row)];
+    cell.textLabel.text=[nsOBJRecord objectForKey:@"text"];
+    NSString *url = [[nsOBJRecord  objectForKey:@"user"] objectForKey:@"profile_image_url"];
+    NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
+    cell.imageView.image=[UIImage imageWithData:imageData];
     return cell;
 }
 

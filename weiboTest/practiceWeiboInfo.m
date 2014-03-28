@@ -128,7 +128,7 @@ static practiceWeiboInfo * instance = nil;
 //        userInfo = [result retain];
         userInfo = result;
     }
-    else if ([request.url hasSuffix:@"statuses/user_timeline.json"])
+    else if ([request.url hasSuffix:@"statuses/home_timeline.json"])
     {
 //        [statuses release];
 //        statuses = [[result objectForKey:@"statuses"] retain];
