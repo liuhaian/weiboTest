@@ -82,10 +82,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"weiboCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    // /*
     practiceWeiboInfo *pObj=[practiceWeiboInfo getInstance];
     NSDictionary *nsOBJRecord=[pObj.statuses objectAtIndex:(indexPath.row)];
     if(nsOBJRecord!=nil){
-        cell.textLabel.text=[nsOBJRecord objectForKey:@"text"];
+        //cell.textLabel.text=[nsOBJRecord objectForKey:@"text"];
         NSString *nsOBJKey=[NSString stringWithFormat:@"%d",indexPath.row];
         NSMutableDictionary *objImagesDic=pObj.authorProfileImages;
         if(objImagesDic==nil){
@@ -101,8 +102,21 @@
                 [objImagesDic setObject:objProfileImage forKey:nsOBJKey];
             }
         }
-        cell.imageView.image=objProfileImage;
+//        cell.imageView.image=objProfileImage;
+        UIImageView *imgView;
+        imgView = (UIImageView *)[cell viewWithTag:2];
+        imgView.image=objProfileImage;
+        
+        imgView = (UIImageView *)[cell viewWithTag:3];
+        imgView.image=objProfileImage;
+        UILabel *txtLabel=(UILabel *)[cell viewWithTag:4];
+        txtLabel.text=[nsOBJRecord objectForKey:@"text"];
     }
+    // */
+    
+    
+    
+    
     return cell;
 }
 
