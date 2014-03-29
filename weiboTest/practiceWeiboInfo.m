@@ -12,7 +12,7 @@ static practiceWeiboInfo * instance = nil;
 
 @implementation practiceWeiboInfo
 
-@synthesize weiboObj,userInfo,statuses,postStatusText,postImageStatusText,controller;
+@synthesize weiboObj,userInfo,statuses,postStatusText,postImageStatusText,controller,authorProfileImages;
 
 +(practiceWeiboInfo *)getInstance
 

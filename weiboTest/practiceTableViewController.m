@@ -66,9 +66,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 5;
+	NSUInteger count = [[practiceWeiboInfo getInstance].statuses count];
+	
+	// if there's no data yet, return enough rows to fill the screen
+    if (count == 0)
+	{
+        return 20;
+    }
+    return count;
 }
 
 
@@ -77,11 +82,27 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"weiboCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    NSDictionary *nsOBJRecord=[[practiceWeiboInfo getInstance].statuses objectAtIndex:(indexPath.row)];
-    cell.textLabel.text=[nsOBJRecord objectForKey:@"text"];
-    NSString *url = [[nsOBJRecord  objectForKey:@"user"] objectForKey:@"profile_image_url"];
-    NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
-    cell.imageView.image=[UIImage imageWithData:imageData];
+    practiceWeiboInfo *pObj=[practiceWeiboInfo getInstance];
+    NSDictionary *nsOBJRecord=[pObj.statuses objectAtIndex:(indexPath.row)];
+    if(nsOBJRecord!=nil){
+        cell.textLabel.text=[nsOBJRecord objectForKey:@"text"];
+        NSString *nsOBJKey=[NSString stringWithFormat:@"%d",indexPath.row];
+        NSMutableDictionary *objImagesDic=pObj.authorProfileImages;
+        if(objImagesDic==nil){
+            objImagesDic=[NSMutableDictionary dictionaryWithCapacity:5];
+            pObj.authorProfileImages=objImagesDic;
+        }
+        UIImage *objProfileImage = [objImagesDic objectForKey:nsOBJKey];
+        if(objProfileImage==nil){
+            NSString *url = [[nsOBJRecord  objectForKey:@"user"] objectForKey:@"profile_image_url"];
+            NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
+            objProfileImage=[UIImage imageWithData:imageData];
+            if(objProfileImage!=nil){
+                [objImagesDic setObject:objProfileImage forKey:nsOBJKey];
+            }
+        }
+        cell.imageView.image=objProfileImage;
+    }
     return cell;
 }
 

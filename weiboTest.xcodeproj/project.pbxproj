@@ -21,6 +21,7 @@
 		F50702A918E31F8D0080F699 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028B18E31F8D0080F699 /* UIKit.framework */; };
 		F50702B118E31F8D0080F699 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F50702AF18E31F8D0080F699 /* InfoPlist.strings */; };
 		F50702B318E31F8D0080F699 /* weiboTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50702B218E31F8D0080F699 /* weiboTestTests.m */; };
+		F59ACE6E18E6725B00C7F88B /* IconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F59ACE6D18E6725B00C7F88B /* IconDownloader.m */; };
 		F5FFCAE818E3D02C00353126 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFCADE18E3D02C00353126 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-deprecated-declarations"; }; };
 		F5FFCAE918E3D02C00353126 /* SinaWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5FFCAE018E3D02C00353126 /* SinaWeibo.bundle */; };
 		F5FFCAEA18E3D02C00353126 /* SinaWeibo.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFCAE218E3D02C00353126 /* SinaWeibo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -60,6 +61,8 @@
 		F50702AE18E31F8D0080F699 /* weiboTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "weiboTestTests-Info.plist"; sourceTree = "<group>"; };
 		F50702B018E31F8D0080F699 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F50702B218E31F8D0080F699 /* weiboTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = weiboTestTests.m; sourceTree = "<group>"; };
+		F59ACE6C18E6725B00C7F88B /* IconDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconDownloader.h; sourceTree = "<group>"; };
+		F59ACE6D18E6725B00C7F88B /* IconDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconDownloader.m; sourceTree = "<group>"; };
 		F5FFCADD18E3D02C00353126 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		F5FFCADE18E3D02C00353126 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		F5FFCAE018E3D02C00353126 /* SinaWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SinaWeibo.bundle; sourceTree = "<group>"; };
@@ -178,9 +181,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F59ACE6B18E6722C00C7F88B /* LazyTable */ = {
+			isa = PBXGroup;
+			children = (
+				F59ACE6C18E6725B00C7F88B /* IconDownloader.h */,
+				F59ACE6D18E6725B00C7F88B /* IconDownloader.m */,
+			);
+			name = LazyTable;
+			sourceTree = "<group>";
+		};
 		F5FFCADB18E3D02C00353126 /* sinaweibo_ios_sdk */ = {
 			isa = PBXGroup;
 			children = (
+				F59ACE6B18E6722C00C7F88B /* LazyTable */,
 				F5FFCADC18E3D02C00353126 /* JSONKit */,
 				F5FFCADF18E3D02C00353126 /* SinaWeibo */,
 			);
@@ -317,6 +330,7 @@
 				F5FFCAEF18E3F6E500353126 /* practiceWeiboInfo.m in Sources */,
 				F507029E18E31F8D0080F699 /* practiceViewController.m in Sources */,
 				F5FFCAEC18E3D02C00353126 /* SinaWeiboRequest.m in Sources */,
+				F59ACE6E18E6725B00C7F88B /* IconDownloader.m in Sources */,
 				F5FFCAE818E3D02C00353126 /* JSONKit.m in Sources */,
 				F507029818E31F8D0080F699 /* practiceAppDelegate.m in Sources */,
 			);

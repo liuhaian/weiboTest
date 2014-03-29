@@ -43,6 +43,7 @@
     @property (nonatomic, strong) SinaWeibo *weiboObj;
     @property (nonatomic, strong) NSDictionary *userInfo;
     @property (nonatomic, strong) NSArray *statuses;
+    @property (nonatomic,strong) NSMutableDictionary *authorProfileImages;
     @property (nonatomic, strong) NSString *postStatusText;
     @property (nonatomic, strong) NSString *postImageStatusText;
 //    @property (nonatomic, strong) practiceViewController *controller;
