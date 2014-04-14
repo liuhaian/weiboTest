@@ -95,7 +95,12 @@
         }
         UIImage *objProfileImage = [objImagesDic objectForKey:nsOBJKey];
         if(objProfileImage==nil){
-            NSString *url = [[nsOBJRecord  objectForKey:@"user"] objectForKey:@"profile_image_url"];
+            NSString *url=nil;
+            if(indexPath.row==1){
+                url = @"http://ww3.sinaimg.cn/mw690/63475a73gw1ef8js7l7qmj20m80et0wh.jpg";
+            }else{
+                url = [[nsOBJRecord  objectForKey:@"user"] objectForKey:@"profile_image_url"];
+            }
             NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
             objProfileImage=[UIImage imageWithData:imageData];
             if(objProfileImage!=nil){

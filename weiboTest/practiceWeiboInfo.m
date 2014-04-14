@@ -50,13 +50,31 @@ static practiceWeiboInfo * instance = nil;
      statuses = nil;
     
     SinaWeibo *sinaweibo = [self weiboObj];
-    [sinaweibo logIn];
+    
+
+    if(![sinaweibo isAuthValid]){
+        [sinaweibo logIn];
+    }else{
+        if(controller!=nil){
+            //        [controller performSegue];
+            [controller nextMove];
+        }
+    }
 }
 #pragma mark - SinaWeibo Delegate
 
 - (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo
 {
     NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", sinaweibo.userID, sinaweibo.accessToken, sinaweibo.expirationDate,sinaweibo.refreshToken);
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *sinaweiboInfo = @{
+                    @"AccessTokenKey" : sinaweibo.accessToken,
+                    @"ExpirationDateKey" : sinaweibo.expirationDate,
+                    @"UserIDKey" : sinaweibo.userID
+//                    @"RefreshTokenKey":sinaweibo.refreshToken
+                    };
+    [defaults setObject:sinaweiboInfo forKey:@"SinaWeiboAuthData"];
+
     if(controller!=nil){
         //        [controller performSegue];
         [controller nextMove];
