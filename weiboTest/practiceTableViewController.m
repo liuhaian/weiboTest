@@ -68,11 +68,11 @@
         NSLog(@"%@",newStr);
         NSDictionary* jsonObject = [[practiceUtil getInstance] toJSON:data];
         if(jsonObject!=nil){
-            NSArray *picsArray=(NSArray*)[jsonObject objectForKey:@"pics"];
-            NSString *picURL_left=[(NSDictionary*)[picsArray objectAtIndex:0] objectForKey:@"pic_url"];
-            NSString *picURL_right=[(NSDictionary*)[picsArray objectAtIndex:1] objectForKey:@"pic_url"];
+            NSArray *picsArray=(NSArray*)[jsonObject objectForKey:@"groups"];
+//            NSString *picURL_left=[(NSDictionary*)[picsArray objectAtIndex:0] objectForKey:@"pic_url"];
+//            NSString *picURL_right=[(NSDictionary*)[picsArray objectAtIndex:1] objectForKey:@"pic_url"];
             practiceWeiboInfo *pObj=[practiceWeiboInfo getInstance];
-            NSLog(@"vote pic upload 2 Returned: %@", picURL_right);
+//            NSLog(@"vote pic upload 2 Returned: %@", picURL_right);
             pObj.statuses=picsArray;
         }
     }
@@ -97,6 +97,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if([practiceWeiboInfo getInstance].statuses==nil){
+        return 0;
+    }
 	NSUInteger count = [[practiceWeiboInfo getInstance].statuses count];
 	
 	// if there's no data yet, return enough rows to fill the screen
@@ -116,18 +119,22 @@
     // /*
     practiceWeiboInfo *pObj=[practiceWeiboInfo getInstance];
     NSDictionary *nsOBJRecord=[pObj.statuses objectAtIndex:(indexPath.row)];
+    UILabel *txtLabelLeft=(UILabel *)[cell viewWithTag:4];
+    UILabel *txtLabelRight=(UILabel *)[cell viewWithTag:5];
     if(nsOBJRecord!=nil){
         //cell.textLabel.text=[nsOBJRecord objectForKey:@"text"];
-        NSString *nsOBJKey=[NSString stringWithFormat:@"%d",indexPath.row];
+        NSString *nsOBJKeyLeft=[NSString stringWithFormat:@"%d.l",indexPath.row];
+        NSString *nsOBJKeyRight=[NSString stringWithFormat:@"%d.r",indexPath.row];
         //Set space to contain images.
         NSMutableDictionary *objImagesDic=pObj.authorProfileImages;
         if(objImagesDic==nil){
             objImagesDic=[NSMutableDictionary dictionaryWithCapacity:5];
             pObj.authorProfileImages=objImagesDic;
         }
-        UIImage *objProfileImage = [objImagesDic objectForKey:nsOBJKey];
-        if(objProfileImage==nil){
-            NSString *url=nil;
+        //Get Left Image
+        UIImage *objProfileImageLeft = [objImagesDic objectForKey:nsOBJKeyLeft];
+        if(objProfileImageLeft==nil){
+            NSString *urlLeft=nil;
 //Comment out the following as it is for Weibo
 //            if(indexPath.row==1){
 //                url = @"http://ww3.sinaimg.cn/mw690/63475a73gw1ef8js7l7qmj20m80et0wh.jpg";
@@ -137,24 +144,42 @@
 
             //random pic start
             //The following is for data like "{"pid":"1","pic_url":"http://ww2.sinaimg.cn/mw690/7816cfd0jw1ee9yc70fj5j20er0m8wjh.jpg","author":"兎美酱Bunny"}
-            url = [nsOBJRecord objectForKey:@"pic_url"];
+            NSDictionary* leftDic=[(NSArray*)[nsOBJRecord objectForKey:@"pics"] objectAtIndex:0];
+            urlLeft = [leftDic objectForKey:@"pic_url"];
+            txtLabelLeft.text=[leftDic objectForKey:@"author"];
             //randome pics end
             
-            NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
-            objProfileImage=[UIImage imageWithData:imageData];
-            if(objProfileImage!=nil){
-                [objImagesDic setObject:objProfileImage forKey:nsOBJKey];
+            NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:urlLeft]];
+            objProfileImageLeft=[UIImage imageWithData:imageData];
+            if(objProfileImageLeft!=nil){
+                [objImagesDic setObject:objProfileImageLeft forKey:nsOBJKeyLeft];
+            }
+        }
+        
+        //Get Left Image
+        UIImage *objProfileImageRight = [objImagesDic objectForKey:nsOBJKeyRight];
+        if(objProfileImageRight==nil){
+            NSString *urlRight=nil;
+            //random pic start
+            //The following is for data like "{"pid":"1","pic_url":"http://ww2.sinaimg.cn/mw690/7816cfd0jw1ee9yc70fj5j20er0m8wjh.jpg","author":"兎美酱Bunny"}
+            NSDictionary* rightDic=[(NSArray*)[nsOBJRecord objectForKey:@"pics"] objectAtIndex:1];
+            urlRight = [rightDic objectForKey:@"pic_url"];
+            txtLabelRight.text=[rightDic objectForKey:@"author"];
+            //randome pics end
+            
+            NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:urlRight]];
+            objProfileImageRight=[UIImage imageWithData:imageData];
+            if(objProfileImageRight!=nil){
+                [objImagesDic setObject:objProfileImageRight forKey:nsOBJKeyRight];
             }
         }
 //        cell.imageView.image=objProfileImage;
-        UIImageView *imgView;
-        imgView = (UIImageView *)[cell viewWithTag:2];
-        imgView.image=objProfileImage;
+        UIImageView *imgViewLeft = (UIImageView *)[cell viewWithTag:2];
+        imgViewLeft.image=objProfileImageLeft;
         
-        imgView = (UIImageView *)[cell viewWithTag:3];
-        imgView.image=objProfileImage;
-        UILabel *txtLabel=(UILabel *)[cell viewWithTag:4];
-        txtLabel.text=[nsOBJRecord objectForKey:@"author"];
+        UIImageView *imgViewRight = (UIImageView *)[cell viewWithTag:3];
+        imgViewRight.image=objProfileImageRight;
+ 
     }
     // */
     

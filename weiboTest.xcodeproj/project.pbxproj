@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6822AA35190E1FCC0096F93E /* practiceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6822AA34190E1FCC0096F93E /* practiceUtil.m */; };
+		6822AA38190E44380096F93E /* HeartRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6822AA37190E44380096F93E /* HeartRed.png */; };
 		F507028818E31F8D0080F699 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028718E31F8D0080F699 /* Foundation.framework */; };
 		F507028A18E31F8D0080F699 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028918E31F8D0080F699 /* CoreGraphics.framework */; };
 		F507028C18E31F8D0080F699 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028B18E31F8D0080F699 /* UIKit.framework */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		6822AA33190E1FCC0096F93E /* practiceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = practiceUtil.h; sourceTree = "<group>"; };
 		6822AA34190E1FCC0096F93E /* practiceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practiceUtil.m; sourceTree = "<group>"; };
+		6822AA37190E44380096F93E /* HeartRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeartRed.png; path = ../../Triplets/Triplets/Resources/HeartRed.png; sourceTree = "<group>"; };
 		F507028418E31F8D0080F699 /* weiboTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weiboTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F507028718E31F8D0080F699 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F507028918E31F8D0080F699 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -106,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6822AA36190E43F30096F93E /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				6822AA37190E44380096F93E /* HeartRed.png */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 		F507027B18E31F8D0080F699 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +150,7 @@
 		F507028D18E31F8D0080F699 /* weiboTest */ = {
 			isa = PBXGroup;
 			children = (
+				6822AA36190E43F30096F93E /* resources */,
 				F507029618E31F8D0080F699 /* practiceAppDelegate.h */,
 				F507029718E31F8D0080F699 /* practiceAppDelegate.m */,
 				F507029918E31F8D0080F699 /* Main.storyboard */,
@@ -307,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F50702A018E31F8D0080F699 /* Images.xcassets in Resources */,
+				6822AA38190E44380096F93E /* HeartRed.png in Resources */,
 				F5FFCAE918E3D02C00353126 /* SinaWeibo.bundle in Resources */,
 				F507029218E31F8D0080F699 /* InfoPlist.strings in Resources */,
 				F507029B18E31F8D0080F699 /* Main.storyboard in Resources */,
