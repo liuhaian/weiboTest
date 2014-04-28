@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6822AA35190E1FCC0096F93E /* practiceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6822AA34190E1FCC0096F93E /* practiceUtil.m */; };
 		F507028818E31F8D0080F699 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028718E31F8D0080F699 /* Foundation.framework */; };
 		F507028A18E31F8D0080F699 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028918E31F8D0080F699 /* CoreGraphics.framework */; };
 		F507028C18E31F8D0080F699 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028B18E31F8D0080F699 /* UIKit.framework */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6822AA33190E1FCC0096F93E /* practiceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = practiceUtil.h; sourceTree = "<group>"; };
+		6822AA34190E1FCC0096F93E /* practiceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practiceUtil.m; sourceTree = "<group>"; };
 		F507028418E31F8D0080F699 /* weiboTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weiboTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F507028718E31F8D0080F699 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F507028918E31F8D0080F699 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,6 +151,8 @@
 				F507028E18E31F8D0080F699 /* Supporting Files */,
 				F5FFCAED18E3F6E500353126 /* practiceWeiboInfo.h */,
 				F5FFCAEE18E3F6E500353126 /* practiceWeiboInfo.m */,
+				6822AA33190E1FCC0096F93E /* practiceUtil.h */,
+				6822AA34190E1FCC0096F93E /* practiceUtil.m */,
 			);
 			path = weiboTest;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				F507029E18E31F8D0080F699 /* practiceViewController.m in Sources */,
 				F5FFCAEC18E3D02C00353126 /* SinaWeiboRequest.m in Sources */,
 				F59ACE6E18E6725B00C7F88B /* IconDownloader.m in Sources */,
+				6822AA35190E1FCC0096F93E /* practiceUtil.m in Sources */,
 				F5FFCAE818E3D02C00353126 /* JSONKit.m in Sources */,
 				F507029818E31F8D0080F699 /* practiceAppDelegate.m in Sources */,
 			);
@@ -500,6 +506,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "weiboTestTests/weiboTestTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -518,6 +525,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "weiboTest/weiboTest-Prefix.pch";
 				INFOPLIST_FILE = "weiboTestTests/weiboTestTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

@@ -7,6 +7,7 @@
 //
 
 #import "practiceTableViewController.h"
+#import "practiceUtil.h"
 
 
 @interface practiceTableViewController ()
@@ -33,19 +34,49 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [practiceWeiboInfo getInstance].controller=self;
-    
-    SinaWeibo *sinaweibo = [practiceWeiboInfo getInstance].weiboObj;
-    [sinaweibo requestWithURL:@"statuses/home_timeline.json"
-                       params:[NSMutableDictionary dictionaryWithObject:sinaweibo.userID forKey:@"uid"]
-                   httpMethod:@"GET"
-                     delegate:[practiceWeiboInfo getInstance]];
+//    [practiceWeiboInfo getInstance].controller=self;
+//    
+//    SinaWeibo *sinaweibo = [practiceWeiboInfo getInstance].weiboObj;
+//    [sinaweibo requestWithURL:@"statuses/home_timeline.json"
+//                       params:[NSMutableDictionary dictionaryWithObject:sinaweibo.userID forKey:@"uid"]
+//                   httpMethod:@"GET"
+//                     delegate:[practiceWeiboInfo getInstance]];
+    [self getFromURL];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - getJsonFrom URL
+- (void)getFromURL
+{
+    // Send a synchronous request
+    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://pivotube.com/triplets/randomPics.php"]];
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                          returningResponse:&response
+                                                      error:&error];
+    
+    if (error == nil)
+    {
+        // Parse data here
+        NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",newStr);
+        NSDictionary* jsonObject = [[practiceUtil getInstance] toJSON:data];
+        if(jsonObject!=nil){
+            NSArray *picsArray=(NSArray*)[jsonObject objectForKey:@"pics"];
+            NSString *picURL_left=[(NSDictionary*)[picsArray objectAtIndex:0] objectForKey:@"pic_url"];
+            NSString *picURL_right=[(NSDictionary*)[picsArray objectAtIndex:1] objectForKey:@"pic_url"];
+            practiceWeiboInfo *pObj=[practiceWeiboInfo getInstance];
+            NSLog(@"vote pic upload 2 Returned: %@", picURL_right);
+            pObj.statuses=picsArray;
+        }
+    }
+    
 }
 
 #pragma mark - practiceViewDelegate
@@ -88,6 +119,7 @@
     if(nsOBJRecord!=nil){
         //cell.textLabel.text=[nsOBJRecord objectForKey:@"text"];
         NSString *nsOBJKey=[NSString stringWithFormat:@"%d",indexPath.row];
+        //Set space to contain images.
         NSMutableDictionary *objImagesDic=pObj.authorProfileImages;
         if(objImagesDic==nil){
             objImagesDic=[NSMutableDictionary dictionaryWithCapacity:5];
@@ -96,11 +128,18 @@
         UIImage *objProfileImage = [objImagesDic objectForKey:nsOBJKey];
         if(objProfileImage==nil){
             NSString *url=nil;
-            if(indexPath.row==1){
-                url = @"http://ww3.sinaimg.cn/mw690/63475a73gw1ef8js7l7qmj20m80et0wh.jpg";
-            }else{
-                url = [[nsOBJRecord  objectForKey:@"user"] objectForKey:@"profile_image_url"];
-            }
+//Comment out the following as it is for Weibo
+//            if(indexPath.row==1){
+//                url = @"http://ww3.sinaimg.cn/mw690/63475a73gw1ef8js7l7qmj20m80et0wh.jpg";
+//            }else{
+//                url = [[nsOBJRecord  objectForKey:@"user"] objectForKey:@"profile_image_url"];
+//            }
+
+            //random pic start
+            //The following is for data like "{"pid":"1","pic_url":"http://ww2.sinaimg.cn/mw690/7816cfd0jw1ee9yc70fj5j20er0m8wjh.jpg","author":"兎美酱Bunny"}
+            url = [nsOBJRecord objectForKey:@"pic_url"];
+            //randome pics end
+            
             NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
             objProfileImage=[UIImage imageWithData:imageData];
             if(objProfileImage!=nil){
@@ -115,7 +154,7 @@
         imgView = (UIImageView *)[cell viewWithTag:3];
         imgView.image=objProfileImage;
         UILabel *txtLabel=(UILabel *)[cell viewWithTag:4];
-        txtLabel.text=[nsOBJRecord objectForKey:@"text"];
+        txtLabel.text=[nsOBJRecord objectForKey:@"author"];
     }
     // */
     
