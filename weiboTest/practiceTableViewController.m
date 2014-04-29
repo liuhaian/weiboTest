@@ -90,7 +90,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
@@ -126,10 +125,10 @@
         NSString *nsOBJKeyLeft=[NSString stringWithFormat:@"%d.l",indexPath.row];
         NSString *nsOBJKeyRight=[NSString stringWithFormat:@"%d.r",indexPath.row];
         //Set space to contain images.
-        NSMutableDictionary *objImagesDic=pObj.authorProfileImages;
+        NSMutableDictionary *objImagesDic=pObj.displayImagesDic;
         if(objImagesDic==nil){
             objImagesDic=[NSMutableDictionary dictionaryWithCapacity:5];
-            pObj.authorProfileImages=objImagesDic;
+            pObj.displayImagesDic=objImagesDic;
         }
         //Get Left Image
         UIImage *objProfileImageLeft = [objImagesDic objectForKey:nsOBJKeyLeft];

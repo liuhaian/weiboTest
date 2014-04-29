@@ -23,9 +23,9 @@
 
 - (IBAction)btnLink:(id)sender {
     [[practiceWeiboInfo getInstance] weiboObjInit];
+    [practiceWeiboInfo getInstance].controller=self;
     [[practiceWeiboInfo getInstance] login];
     //Set controller so that when the request returns, it can transit.
-    [practiceWeiboInfo getInstance].controller=self;
 //    [self performSegueWithIdentifier:@"afterLogin" sender:sender];
 }
 
