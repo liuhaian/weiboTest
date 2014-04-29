@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="NqI-nM-xgw">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="MmK-OV-fHT">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="NqI-nM-xgw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xLq-6W-nKL">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="zi1-Hm-7Yg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ac6-jN-lTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-422" y="563"/>
+        </scene>
         <!--Practice View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -25,15 +40,17 @@
                                 </state>
                                 <connections>
                                     <action selector="btnLink:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jtM-nO-Ovw"/>
-                                    <segue destination="Qr6-Vq-z2f" kind="modal" identifier="afterLogin" modalTransitionStyle="coverVertical" id="u4I-s6-WjL"/>
+                                    <segue destination="Qr6-Vq-z2f" kind="push" identifier="afterLogin" id="u4I-s6-WjL"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="V9W-QL-AOQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-108" y="-113"/>
         </scene>
         <!--Practice Table View Controller-->
         <scene sceneID="n3R-Z7-gdG">
@@ -45,7 +62,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell tag="1" contentMode="top" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="weiboCell" rowHeight="250" id="AQ0-jf-tfA">
-                                <rect key="frame" x="0.0" y="22" width="320" height="250"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AQ0-jf-tfA" id="EWc-GZ-7La">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
