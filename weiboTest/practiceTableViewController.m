@@ -121,6 +121,8 @@
     NSDictionary *nsOBJRecord=[pObj.statuses objectAtIndex:(indexPath.row)];
     UILabel *txtLabelLeft=(UILabel *)[cell viewWithTag:4];
     UILabel *txtLabelRight=(UILabel *)[cell viewWithTag:5];
+    UILabel *txtVoteCountLeft=(UILabel *)[cell viewWithTag:15];
+    UILabel *txtVoteCountRight=(UILabel *)[cell viewWithTag:16];
     if(nsOBJRecord!=nil){
         //cell.textLabel.text=[nsOBJRecord objectForKey:@"text"];
         NSString *nsOBJKeyLeft=[NSString stringWithFormat:@"%d.l",indexPath.row];
@@ -147,6 +149,7 @@
             NSDictionary* leftDic=[(NSArray*)[nsOBJRecord objectForKey:@"pics"] objectAtIndex:0];
             urlLeft = [leftDic objectForKey:@"pic_url"];
             txtLabelLeft.text=[leftDic objectForKey:@"author"];
+            txtVoteCountLeft.text=[leftDic objectForKey:@"vote_count"];
             //randome pics end
             
             NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:urlLeft]];
@@ -165,6 +168,7 @@
             NSDictionary* rightDic=[(NSArray*)[nsOBJRecord objectForKey:@"pics"] objectAtIndex:1];
             urlRight = [rightDic objectForKey:@"pic_url"];
             txtLabelRight.text=[rightDic objectForKey:@"author"];
+            txtVoteCountRight.text=[rightDic objectForKey:@"vote_count"];
             //randome pics end
             
             NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:urlRight]];
