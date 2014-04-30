@@ -7,11 +7,17 @@
 //
 
 #import "practiceAppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation practiceAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Parse for triplets app
+    [Parse setApplicationId:@"cSWpl3O2IpFmKIxqtEcD8tWep8Evze45cwxXQGQz"
+                  clientKey:@"dgrgTzBmRBVM9vEPFoRiwBcOqT6AglOt3oxeXgIz"];
+    //For tracking statistics
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     // Override point for customization after application launch.
     return YES;
 }

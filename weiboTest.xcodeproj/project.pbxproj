@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		6822AA35190E1FCC0096F93E /* practiceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6822AA34190E1FCC0096F93E /* practiceUtil.m */; };
 		6822AA38190E44380096F93E /* HeartRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6822AA37190E44380096F93E /* HeartRed.png */; };
+		6822AA7F1910C75C0096F93E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA7E1910C75C0096F93E /* Parse.framework */; };
+		6822AA891910C81E0096F93E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA801910C81D0096F93E /* AudioToolbox.framework */; };
+		6822AA8A1910C81E0096F93E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA811910C81D0096F93E /* CFNetwork.framework */; };
+		6822AA8B1910C81E0096F93E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA821910C81D0096F93E /* CoreLocation.framework */; };
+		6822AA8C1910C81E0096F93E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA831910C81D0096F93E /* libz.dylib */; };
+		6822AA8D1910C81E0096F93E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA841910C81D0096F93E /* MobileCoreServices.framework */; };
+		6822AA8E1910C81E0096F93E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA851910C81D0096F93E /* QuartzCore.framework */; };
+		6822AA8F1910C81E0096F93E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA861910C81D0096F93E /* Security.framework */; };
+		6822AA901910C81E0096F93E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA871910C81E0096F93E /* StoreKit.framework */; };
+		6822AA911910C81E0096F93E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA881910C81E0096F93E /* SystemConfiguration.framework */; };
 		F507028818E31F8D0080F699 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028718E31F8D0080F699 /* Foundation.framework */; };
 		F507028A18E31F8D0080F699 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028918E31F8D0080F699 /* CoreGraphics.framework */; };
 		F507028C18E31F8D0080F699 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028B18E31F8D0080F699 /* UIKit.framework */; };
@@ -47,6 +57,16 @@
 		6822AA33190E1FCC0096F93E /* practiceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = practiceUtil.h; sourceTree = "<group>"; };
 		6822AA34190E1FCC0096F93E /* practiceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practiceUtil.m; sourceTree = "<group>"; };
 		6822AA37190E44380096F93E /* HeartRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeartRed.png; path = ../../Triplets/Triplets/Resources/HeartRed.png; sourceTree = "<group>"; };
+		6822AA7E1910C75C0096F93E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		6822AA801910C81D0096F93E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6822AA811910C81D0096F93E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6822AA821910C81D0096F93E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6822AA831910C81D0096F93E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		6822AA841910C81D0096F93E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		6822AA851910C81D0096F93E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6822AA861910C81D0096F93E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6822AA871910C81E0096F93E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		6822AA881910C81E0096F93E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F507028418E31F8D0080F699 /* weiboTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weiboTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F507028718E31F8D0080F699 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F507028918E31F8D0080F699 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -89,8 +109,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6822AA891910C81E0096F93E /* AudioToolbox.framework in Frameworks */,
+				6822AA8A1910C81E0096F93E /* CFNetwork.framework in Frameworks */,
+				6822AA8B1910C81E0096F93E /* CoreLocation.framework in Frameworks */,
+				6822AA8C1910C81E0096F93E /* libz.dylib in Frameworks */,
+				6822AA8D1910C81E0096F93E /* MobileCoreServices.framework in Frameworks */,
+				6822AA8E1910C81E0096F93E /* QuartzCore.framework in Frameworks */,
+				6822AA8F1910C81E0096F93E /* Security.framework in Frameworks */,
+				6822AA901910C81E0096F93E /* StoreKit.framework in Frameworks */,
+				6822AA911910C81E0096F93E /* SystemConfiguration.framework in Frameworks */,
 				F507028A18E31F8D0080F699 /* CoreGraphics.framework in Frameworks */,
 				F507028C18E31F8D0080F699 /* UIKit.framework in Frameworks */,
+				6822AA7F1910C75C0096F93E /* Parse.framework in Frameworks */,
 				F507028818E31F8D0080F699 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +149,7 @@
 		F507027B18E31F8D0080F699 = {
 			isa = PBXGroup;
 			children = (
+				6822AA7E1910C75C0096F93E /* Parse.framework */,
 				F5FFCADB18E3D02C00353126 /* sinaweibo_ios_sdk */,
 				F507028D18E31F8D0080F699 /* weiboTest */,
 				F50702AC18E31F8D0080F699 /* weiboTestTests */,
@@ -139,6 +170,15 @@
 		F507028618E31F8D0080F699 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6822AA801910C81D0096F93E /* AudioToolbox.framework */,
+				6822AA811910C81D0096F93E /* CFNetwork.framework */,
+				6822AA821910C81D0096F93E /* CoreLocation.framework */,
+				6822AA831910C81D0096F93E /* libz.dylib */,
+				6822AA841910C81D0096F93E /* MobileCoreServices.framework */,
+				6822AA851910C81D0096F93E /* QuartzCore.framework */,
+				6822AA861910C81D0096F93E /* Security.framework */,
+				6822AA871910C81E0096F93E /* StoreKit.framework */,
+				6822AA881910C81E0096F93E /* SystemConfiguration.framework */,
 				F507028718E31F8D0080F699 /* Foundation.framework */,
 				F507028918E31F8D0080F699 /* CoreGraphics.framework */,
 				F507028B18E31F8D0080F699 /* UIKit.framework */,
@@ -477,6 +517,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/Backup/src/xcode/weiboTest,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "weiboTest/weiboTest-Prefix.pch";
 				INFOPLIST_FILE = "weiboTest/weiboTest-Info.plist";
@@ -493,6 +537,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/Backup/src/xcode/weiboTest,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "weiboTest/weiboTest-Prefix.pch";
 				INFOPLIST_FILE = "weiboTest/weiboTest-Info.plist";

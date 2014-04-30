@@ -33,7 +33,8 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.title=@"微博搬运工";
 //    [practiceWeiboInfo getInstance].controller=self;
 //    
 //    SinaWeibo *sinaweibo = [practiceWeiboInfo getInstance].weiboObj;
@@ -189,6 +190,33 @@
 }
 
 
+- (IBAction)voteWithTag:(id)sender {
+    NSLog(@"Left vote invoked!tag=%d",[sender tag]);
+    UITableViewCell* tmpCell=nil;
+    
+    
+    
+    if ([[sender superview] isKindOfClass:[UITableViewCell class]]) {
+        tmpCell=(UITableViewCell*)[sender superview];
+    }else
+        if ([[[sender superview] superview] isKindOfClass:[UITableViewCell class]]) {
+            tmpCell=(UITableViewCell*)[[sender superview] superview];
+        }else
+            if([[[[sender superview] superview] superview] isKindOfClass:[UITableViewCell class]]){
+                tmpCell=(UITableViewCell*)[[[sender superview] superview] superview];
+            }
+    //Get row from tap cell
+    if(tmpCell!=nil){
+        NSIndexPath *iPath=[self.tableView indexPathForCell:(UITableViewCell*)tmpCell];
+        NSLog(@"MyRow:%d",iPath.row);
+        //        sender.view.hidden=YES;
+        //        [self.tableView reloadRowsAtIndexPaths:@[iPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        //        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:iPath];
+    }else{
+        NSLog(@"table cell not found");
+    }
+    NSLog(@"Tag detected");
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
