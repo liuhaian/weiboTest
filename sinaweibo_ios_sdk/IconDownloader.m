@@ -59,6 +59,7 @@
 
 
 @implementation IconDownloader
+@synthesize rtnImage;
 
 #pragma mark
 
@@ -102,19 +103,19 @@
     // Set appIcon and clear temporary data/image
     UIImage *image = [[UIImage alloc] initWithData:self.activeDownload];
     
-    if (image.size.width != kAppIconSize || image.size.height != kAppIconSize)
-	{
-        CGSize itemSize = CGSizeMake(kAppIconSize, kAppIconSize);
-		UIGraphicsBeginImageContextWithOptions(itemSize, NO, 0.0f);
-		CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
-		[image drawInRect:imageRect];
-		_rtnImage = UIGraphicsGetImageFromCurrentImageContext();
-		UIGraphicsEndImageContext();
-    }
-    else
-    {
-        _rtnImage = image;
-    }
+//    if (image.size.width != kAppIconSize || image.size.height != kAppIconSize)
+//	{
+//        CGSize itemSize = CGSizeMake(kAppIconSize, kAppIconSize);
+//		UIGraphicsBeginImageContextWithOptions(itemSize, NO, 0.0f);
+//		CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+//		[image drawInRect:imageRect];
+//		rtnImage = UIGraphicsGetImageFromCurrentImageContext();
+//		UIGraphicsEndImageContext();
+//    }
+//    else
+//    {
+        rtnImage = image;
+//    }
     
     self.activeDownload = nil;
     
@@ -123,7 +124,7 @@
         
     // call our delegate and tell it that our icon is ready for display
     if (self.completionHandler)
-        self.completionHandler();
+        self.completionHandler(rtnImage);
 }
 
 @end

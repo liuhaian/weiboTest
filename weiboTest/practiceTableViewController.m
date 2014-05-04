@@ -8,9 +8,13 @@
 
 #import "practiceTableViewController.h"
 #import "practiceUtil.h"
+#import "IconDownloader.h"
 
 
 @interface practiceTableViewController ()
+
+// the set of IconDownloader objects for each app
+@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 
 @end
 
@@ -32,6 +36,8 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
+    self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title=@"微博搬运工";
@@ -117,6 +123,7 @@
     
     // Configure the cell...
     // /*
+    NSLog(@"display cell for row %d",indexPath.row);
     practiceWeiboInfo *pObj=[practiceWeiboInfo getInstance];
     NSDictionary *nsOBJRecord=[pObj.statuses objectAtIndex:(indexPath.row)];
     UILabel *txtLabelLeft=(UILabel *)[cell viewWithTag:4];
@@ -151,15 +158,24 @@
             txtLabelLeft.text=[leftDic objectForKey:@"author"];
             txtVoteCountLeft.text=[leftDic objectForKey:@"vote_count"];
             //randome pics end
-            
-            NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:urlLeft]];
-            objProfileImageLeft=[UIImage imageWithData:imageData];
-            if(objProfileImageLeft!=nil){
-                [objImagesDic setObject:objProfileImageLeft forKey:nsOBJKeyLeft];
+//            
+//            NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:urlLeft]];
+//            objProfileImageLeft=[UIImage imageWithData:imageData];
+//            if(objProfileImageLeft!=nil){
+//                [objImagesDic setObject:objProfileImageLeft forKey:nsOBJKeyLeft];
+//            }
+            if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
+            {
+                [self startIconDownload:urlLeft forIndexPath:indexPath keyForImage:nsOBJKeyLeft];
             }
+
+        }else{
+            UIImageView *imgViewLeft = (UIImageView *)[cell viewWithTag:2];
+            imgViewLeft.image=objProfileImageLeft;
+            
         }
         
-        //Get Left Image
+        //Get right Image
         UIImage *objProfileImageRight = [objImagesDic objectForKey:nsOBJKeyRight];
         if(objProfileImageRight==nil){
             NSString *urlRight=nil;
@@ -171,18 +187,22 @@
             txtVoteCountRight.text=[rightDic objectForKey:@"vote_count"];
             //randome pics end
             
-            NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:urlRight]];
-            objProfileImageRight=[UIImage imageWithData:imageData];
-            if(objProfileImageRight!=nil){
-                [objImagesDic setObject:objProfileImageRight forKey:nsOBJKeyRight];
+//            NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:urlRight]];
+//            objProfileImageRight=[UIImage imageWithData:imageData];
+//            if(objProfileImageRight!=nil){
+//                [objImagesDic setObject:objProfileImageRight forKey:nsOBJKeyRight];
+//            }
+            
+            if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
+            {
+                [self startIconDownload:urlRight forIndexPath:indexPath keyForImage:nsOBJKeyRight];
             }
+
+        }else{
+            UIImageView *imgViewRight = (UIImageView *)[cell viewWithTag:3];
+            imgViewRight.image=objProfileImageRight;
         }
-//        cell.imageView.image=objProfileImage;
-        UIImageView *imgViewLeft = (UIImageView *)[cell viewWithTag:2];
-        imgViewLeft.image=objProfileImageLeft;
         
-        UIImageView *imgViewRight = (UIImageView *)[cell viewWithTag:3];
-        imgViewRight.image=objProfileImageRight;
  
     }
     // */
@@ -269,5 +289,120 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - Table cell image support
+
+// -------------------------------------------------------------------------------
+//	startIconDownload:forIndexPath:
+// -------------------------------------------------------------------------------
+- (void)startIconDownload:(NSString *)imageURLString forIndexPath:(NSIndexPath *)indexPath keyForImage:(NSString *)strKey
+{
+    IconDownloader *iconDownloader = [self.imageDownloadsInProgress objectForKey:strKey];
+    if (iconDownloader == nil)
+    {
+         iconDownloader = [[IconDownloader alloc] init];
+        [iconDownloader setCompletionHandler:^(UIImage *img){
+            
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+//            UIImage *imageRtn=img;
+            
+            // Display the newly loaded image
+//            cell.imageView.image = appRecord.appIcon;
+            NSString *nsOBJKeyLeft=[NSString stringWithFormat:@"%d.l",indexPath.row];
+            NSString *nsOBJKeyRight=[NSString stringWithFormat:@"%d.r",indexPath.row];
+            if([strKey isEqual:nsOBJKeyLeft]){
+                if(img!=nil){
+                    practiceWeiboInfo *pObj=[practiceWeiboInfo getInstance];
+                    NSMutableDictionary *objImagesDic=pObj.displayImagesDic;
+                    [objImagesDic setObject:img forKey:nsOBJKeyLeft];
+                }
+                UIImageView *imgViewLeft = (UIImageView *)[cell viewWithTag:2];
+                imgViewLeft.image=img;
+            }
+            if([strKey isEqual:nsOBJKeyRight]){
+                if(img!=nil){
+                    practiceWeiboInfo *pObj=[practiceWeiboInfo getInstance];
+                    NSMutableDictionary *objImagesDic=pObj.displayImagesDic;
+                    [objImagesDic setObject:img forKey:nsOBJKeyRight];
+                }
+                UIImageView *imgViewRight = (UIImageView *)[cell viewWithTag:3];
+                imgViewRight.image=img;
+            }
+            
+            // Remove the IconDownloader from the in progress list.
+            // This will result in it being deallocated.
+            [self.imageDownloadsInProgress removeObjectForKey:strKey];
+            
+        }];
+        [self.imageDownloadsInProgress setObject:iconDownloader forKey:strKey];
+        [iconDownloader startDownload:imageURLString];
+    }
+}
+
+// -------------------------------------------------------------------------------
+//	loadImagesForOnscreenRows
+//  This method is used in case the user scrolled into a set of cells that don't
+//  have their app icons yet.
+// -------------------------------------------------------------------------------
+- (void)loadImagesForOnscreenRows
+{
+    practiceWeiboInfo *pObj=[practiceWeiboInfo getInstance];
+    if ([pObj.statuses count] > 0)
+    {
+        NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+        for (NSIndexPath *indexPath in visiblePaths)
+        {
+            NSDictionary *nsOBJRecord=[pObj.statuses objectAtIndex:(indexPath.row)];
+            NSMutableDictionary *objImagesDic=pObj.displayImagesDic;
+            NSString *nsOBJKeyLeft=[NSString stringWithFormat:@"%d.l",indexPath.row];
+            NSString *nsOBJKeyRight=[NSString stringWithFormat:@"%d.r",indexPath.row];
+
+            //Get Left Image
+            UIImage *objProfileImageLeft = [objImagesDic objectForKey:nsOBJKeyLeft];
+            if(objProfileImageLeft==nil){
+                NSString *urlLeft=nil;
+                NSDictionary* leftDic=[(NSArray*)[nsOBJRecord objectForKey:@"pics"] objectAtIndex:0];
+                urlLeft = [leftDic objectForKey:@"pic_url"];
+
+                 // Avoid the app icon download if the app already has an icon
+                [self startIconDownload:urlLeft forIndexPath:indexPath keyForImage:nsOBJKeyLeft];
+            }
+
+            //Get Left Image
+            UIImage *objProfileImageRight = [objImagesDic objectForKey:nsOBJKeyRight];
+            if(objProfileImageRight==nil){
+                NSString *urlRight=nil;
+                NSDictionary* rightDic=[(NSArray*)[nsOBJRecord objectForKey:@"pics"] objectAtIndex:1];
+                urlRight = [rightDic objectForKey:@"pic_url"];
+                
+                // Avoid the app icon download if the app already has an icon
+                [self startIconDownload:urlRight forIndexPath:indexPath keyForImage:nsOBJKeyRight];
+            }
+
+        }
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+
+// -------------------------------------------------------------------------------
+//	scrollViewDidEndDragging:willDecelerate:
+//  Load images for all onscreen rows when scrolling is finished.
+// -------------------------------------------------------------------------------
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+	{
+        [self loadImagesForOnscreenRows];
+    }
+}
+
+// -------------------------------------------------------------------------------
+//	scrollViewDidEndDecelerating:
+// -------------------------------------------------------------------------------
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOnscreenRows];
+}
+
 
 @end

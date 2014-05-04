@@ -53,7 +53,7 @@
 @interface IconDownloader : NSObject
 
 @property (nonatomic, strong) UIImage *rtnImage;
-@property (nonatomic, copy) void (^completionHandler)(void);
+@property (nonatomic, copy) void (^completionHandler)(UIImage* img);
 
 - (void)startDownload:(NSString*)imageURLString;
 - (void)cancelDownload;
