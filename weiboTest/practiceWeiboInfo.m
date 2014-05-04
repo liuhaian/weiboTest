@@ -61,6 +61,7 @@ static practiceWeiboInfo * instance = nil;
         }
     }
 }
+
 #pragma mark - SinaWeibo Delegate
 
 - (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo

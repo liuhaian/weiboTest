@@ -22,8 +22,6 @@
 }
 
 - (IBAction)btnLink:(id)sender {
-    [[practiceWeiboInfo getInstance] weiboObjInit];
-    [practiceWeiboInfo getInstance].controller=self;
     [[practiceWeiboInfo getInstance] login];
     //Set controller so that when the request returns, it can transit.
 //    [self performSegueWithIdentifier:@"afterLogin" sender:sender];
@@ -35,13 +33,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view, typically from a nib.
+    [[practiceWeiboInfo getInstance] weiboObjInit];
+    [practiceWeiboInfo getInstance].controller=self;
+    if([[practiceWeiboInfo getInstance].weiboObj isAuthValid]){
+        [self nextMove];
+    }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+
+
 }
 
 @end
