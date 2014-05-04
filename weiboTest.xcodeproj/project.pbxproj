@@ -19,6 +19,7 @@
 		6822AA8F1910C81E0096F93E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA861910C81D0096F93E /* Security.framework */; };
 		6822AA901910C81E0096F93E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA871910C81E0096F93E /* StoreKit.framework */; };
 		6822AA911910C81E0096F93E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA881910C81E0096F93E /* SystemConfiguration.framework */; };
+		68B912F219161BDF00F4F3F2 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 68B912F119161BDF00F4F3F2 /* Loading.png */; };
 		F507028818E31F8D0080F699 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028718E31F8D0080F699 /* Foundation.framework */; };
 		F507028A18E31F8D0080F699 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028918E31F8D0080F699 /* CoreGraphics.framework */; };
 		F507028C18E31F8D0080F699 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028B18E31F8D0080F699 /* UIKit.framework */; };
@@ -67,6 +68,7 @@
 		6822AA861910C81D0096F93E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6822AA871910C81E0096F93E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		6822AA881910C81E0096F93E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		68B912F119161BDF00F4F3F2 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 		F507028418E31F8D0080F699 /* weiboTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weiboTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F507028718E31F8D0080F699 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F507028918E31F8D0080F699 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -141,6 +143,7 @@
 		6822AA36190E43F30096F93E /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				68B912F119161BDF00F4F3F2 /* Loading.png */,
 				6822AA37190E44380096F93E /* HeartRed.png */,
 			);
 			name = resources;
@@ -359,6 +362,7 @@
 			files = (
 				F50702A018E31F8D0080F699 /* Images.xcassets in Resources */,
 				6822AA38190E44380096F93E /* HeartRed.png in Resources */,
+				68B912F219161BDF00F4F3F2 /* Loading.png in Resources */,
 				F5FFCAE918E3D02C00353126 /* SinaWeibo.bundle in Resources */,
 				F507029218E31F8D0080F699 /* InfoPlist.strings in Resources */,
 				F507029B18E31F8D0080F699 /* Main.storyboard in Resources */,

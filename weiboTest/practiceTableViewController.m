@@ -15,10 +15,12 @@
 
 // the set of IconDownloader objects for each app
 @property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
+@property (nonatomic, strong) UIImage *imgPlaceHolder;
 
 @end
 
 @implementation practiceTableViewController
+@synthesize imgPlaceHolder;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,6 +43,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title=@"微博搬运工";
+    imgPlaceHolder=[UIImage imageNamed:@"Loading.png"];
 //    [practiceWeiboInfo getInstance].controller=self;
 //    
 //    SinaWeibo *sinaweibo = [practiceWeiboInfo getInstance].weiboObj;
@@ -142,21 +145,24 @@
         }
         //Get Left Image
         UIImage *objProfileImageLeft = [objImagesDic objectForKey:nsOBJKeyLeft];
+        //Comment out the following as it is for Weibo
+        //            if(indexPath.row==1){
+        //                url = @"http://ww3.sinaimg.cn/mw690/63475a73gw1ef8js7l7qmj20m80et0wh.jpg";
+        //            }else{
+        //                url = [[nsOBJRecord  objectForKey:@"user"] objectForKey:@"profile_image_url"];
+        //            }
+        
+        //random pic start
+        //The following is for data like "{"pid":"1","pic_url":"http://ww2.sinaimg.cn/mw690/7816cfd0jw1ee9yc70fj5j20er0m8wjh.jpg","author":"兎美酱Bunny"}
+        NSDictionary* leftDic=[(NSArray*)[nsOBJRecord objectForKey:@"pics"] objectAtIndex:0];
+        txtLabelLeft.text=[leftDic objectForKey:@"author"];
+        txtVoteCountLeft.text=[leftDic objectForKey:@"vote_count"];
+        UIImageView *imgViewLeft = (UIImageView *)[cell viewWithTag:2];
+        UIImageView *imgViewRight = (UIImageView *)[cell viewWithTag:3];
+        
         if(objProfileImageLeft==nil){
             NSString *urlLeft=nil;
-//Comment out the following as it is for Weibo
-//            if(indexPath.row==1){
-//                url = @"http://ww3.sinaimg.cn/mw690/63475a73gw1ef8js7l7qmj20m80et0wh.jpg";
-//            }else{
-//                url = [[nsOBJRecord  objectForKey:@"user"] objectForKey:@"profile_image_url"];
-//            }
-
-            //random pic start
-            //The following is for data like "{"pid":"1","pic_url":"http://ww2.sinaimg.cn/mw690/7816cfd0jw1ee9yc70fj5j20er0m8wjh.jpg","author":"兎美酱Bunny"}
-            NSDictionary* leftDic=[(NSArray*)[nsOBJRecord objectForKey:@"pics"] objectAtIndex:0];
             urlLeft = [leftDic objectForKey:@"pic_url"];
-            txtLabelLeft.text=[leftDic objectForKey:@"author"];
-            txtVoteCountLeft.text=[leftDic objectForKey:@"vote_count"];
             //randome pics end
 //            
 //            NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:urlLeft]];
@@ -168,23 +174,22 @@
             {
                 [self startIconDownload:urlLeft forIndexPath:indexPath keyForImage:nsOBJKeyLeft];
             }
-
+            imgViewLeft.image=imgPlaceHolder;
         }else{
-            UIImageView *imgViewLeft = (UIImageView *)[cell viewWithTag:2];
             imgViewLeft.image=objProfileImageLeft;
             
         }
         
         //Get right Image
+        NSDictionary* rightDic=[(NSArray*)[nsOBJRecord objectForKey:@"pics"] objectAtIndex:1];
+        txtLabelRight.text=[rightDic objectForKey:@"author"];
+        txtVoteCountRight.text=[rightDic objectForKey:@"vote_count"];
         UIImage *objProfileImageRight = [objImagesDic objectForKey:nsOBJKeyRight];
         if(objProfileImageRight==nil){
             NSString *urlRight=nil;
+            urlRight = [rightDic objectForKey:@"pic_url"];
             //random pic start
             //The following is for data like "{"pid":"1","pic_url":"http://ww2.sinaimg.cn/mw690/7816cfd0jw1ee9yc70fj5j20er0m8wjh.jpg","author":"兎美酱Bunny"}
-            NSDictionary* rightDic=[(NSArray*)[nsOBJRecord objectForKey:@"pics"] objectAtIndex:1];
-            urlRight = [rightDic objectForKey:@"pic_url"];
-            txtLabelRight.text=[rightDic objectForKey:@"author"];
-            txtVoteCountRight.text=[rightDic objectForKey:@"vote_count"];
             //randome pics end
             
 //            NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:urlRight]];
@@ -197,9 +202,9 @@
             {
                 [self startIconDownload:urlRight forIndexPath:indexPath keyForImage:nsOBJKeyRight];
             }
+            imgViewRight.image=imgPlaceHolder;
 
         }else{
-            UIImageView *imgViewRight = (UIImageView *)[cell viewWithTag:3];
             imgViewRight.image=objProfileImageRight;
         }
         
