@@ -20,6 +20,8 @@
 		6822AA901910C81E0096F93E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA871910C81E0096F93E /* StoreKit.framework */; };
 		6822AA911910C81E0096F93E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822AA881910C81E0096F93E /* SystemConfiguration.framework */; };
 		68B912F219161BDF00F4F3F2 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 68B912F119161BDF00F4F3F2 /* Loading.png */; };
+		68B912F419162C9000F4F3F2 /* joke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68B912F319162C9000F4F3F2 /* joke.jpg */; };
+		68B912F719162D2E00F4F3F2 /* jokeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B912F619162D2E00F4F3F2 /* jokeTableViewController.m */; };
 		F507028818E31F8D0080F699 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028718E31F8D0080F699 /* Foundation.framework */; };
 		F507028A18E31F8D0080F699 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028918E31F8D0080F699 /* CoreGraphics.framework */; };
 		F507028C18E31F8D0080F699 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507028B18E31F8D0080F699 /* UIKit.framework */; };
@@ -69,6 +71,9 @@
 		6822AA871910C81E0096F93E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		6822AA881910C81E0096F93E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		68B912F119161BDF00F4F3F2 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
+		68B912F319162C9000F4F3F2 /* joke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = joke.jpg; sourceTree = "<group>"; };
+		68B912F519162D2E00F4F3F2 /* jokeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jokeTableViewController.h; path = weiboTest/jokeTableViewController.h; sourceTree = "<group>"; };
+		68B912F619162D2E00F4F3F2 /* jokeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = jokeTableViewController.m; path = weiboTest/jokeTableViewController.m; sourceTree = "<group>"; };
 		F507028418E31F8D0080F699 /* weiboTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weiboTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F507028718E31F8D0080F699 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F507028918E31F8D0080F699 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -152,6 +157,8 @@
 		F507027B18E31F8D0080F699 = {
 			isa = PBXGroup;
 			children = (
+				68B912F519162D2E00F4F3F2 /* jokeTableViewController.h */,
+				68B912F619162D2E00F4F3F2 /* jokeTableViewController.m */,
 				6822AA7E1910C75C0096F93E /* Parse.framework */,
 				F5FFCADB18E3D02C00353126 /* sinaweibo_ios_sdk */,
 				F507028D18E31F8D0080F699 /* weiboTest */,
@@ -197,6 +204,7 @@
 				F507029618E31F8D0080F699 /* practiceAppDelegate.h */,
 				F507029718E31F8D0080F699 /* practiceAppDelegate.m */,
 				F507029918E31F8D0080F699 /* Main.storyboard */,
+				68B912F319162C9000F4F3F2 /* joke.jpg */,
 				F5FFCAF018E46F1100353126 /* practiceTableViewController.h */,
 				F5FFCAF118E46F1200353126 /* practiceTableViewController.m */,
 				F507029C18E31F8D0080F699 /* practiceViewController.h */,
@@ -363,6 +371,7 @@
 				F50702A018E31F8D0080F699 /* Images.xcassets in Resources */,
 				6822AA38190E44380096F93E /* HeartRed.png in Resources */,
 				68B912F219161BDF00F4F3F2 /* Loading.png in Resources */,
+				68B912F419162C9000F4F3F2 /* joke.jpg in Resources */,
 				F5FFCAE918E3D02C00353126 /* SinaWeibo.bundle in Resources */,
 				F507029218E31F8D0080F699 /* InfoPlist.strings in Resources */,
 				F507029B18E31F8D0080F699 /* Main.storyboard in Resources */,
@@ -384,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68B912F719162D2E00F4F3F2 /* jokeTableViewController.m in Sources */,
 				F5FFCAEA18E3D02C00353126 /* SinaWeibo.m in Sources */,
 				F507029418E31F8D0080F699 /* main.m in Sources */,
 				F5FFCAEB18E3D02C00353126 /* SinaWeiboAuthorizeView.m in Sources */,

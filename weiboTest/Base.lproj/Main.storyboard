@@ -8,7 +8,8 @@
         <!--Navigation Controller-->
         <scene sceneID="MmK-OV-fHT">
             <objects>
-                <navigationController definesPresentationContext="YES" id="NqI-nM-xgw" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" toolbarHidden="NO" id="NqI-nM-xgw" sceneMemberID="viewController">
+                    <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xLq-6W-nKL">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -63,7 +64,7 @@
             <objects>
                 <tableViewController id="Qr6-Vq-z2f" customClass="practiceTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" sectionHeaderHeight="22" sectionFooterHeight="22" id="xwl-b2-IfE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -139,17 +140,65 @@
                             <outlet property="delegate" destination="Qr6-Vq-z2f" id="z1Y-4g-KdF"/>
                         </connections>
                     </tableView>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <toolbarItems>
+                        <barButtonItem title="美女" style="done" id="tlP-SD-rdw"/>
+                        <barButtonItem title="健身" style="plain" id="Fld-Wn-Wm0"/>
+                        <barButtonItem title="萌娃" style="plain" id="v4M-US-QFg"/>
+                        <barButtonItem title="美景" id="d0Y-EJ-C39"/>
+                        <barButtonItem title="美食" id="PQf-xa-7vT"/>
+                        <barButtonItem title="段子" id="n8C-Mh-LPo">
+                            <connections>
+                                <segue destination="4TO-B5-gB5" kind="push" id="Hp9-qY-cFa"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCm-7d-nkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="392" y="-113"/>
         </scene>
+        <!--Joke Table View Controller-->
+        <scene sceneID="iih-Hs-NSM">
+            <objects>
+                <tableViewController id="4TO-B5-gB5" customClass="jokeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="440" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rpq-RT-jwQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="JokeWeiboCell" rowHeight="440" id="qTl-oa-ruc">
+                                <rect key="frame" x="0.0" y="86" width="320" height="440"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qTl-oa-ruc" id="L1I-qG-q4N">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="439"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joke.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bDF-jb-loV">
+                                            <rect key="frame" x="-7" y="0.0" width="320" height="439"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4TO-B5-gB5" id="dwW-Gx-Itb"/>
+                            <outlet property="delegate" destination="4TO-B5-gB5" id="cHG-Bb-v66"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="NP3-nC-ZGA"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nb3-sw-bCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831" y="-116"/>
+        </scene>
     </scenes>
     <resources>
         <image name="HeartRed.png" width="63" height="61"/>
         <image name="Loading.png" width="300" height="300"/>
+        <image name="joke.jpg" width="440" height="514"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
