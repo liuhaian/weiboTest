@@ -141,12 +141,10 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="美女" style="done" id="tlP-SD-rdw"/>
-                        <barButtonItem title="健身" style="plain" id="Fld-Wn-Wm0"/>
-                        <barButtonItem title="萌娃" style="plain" id="v4M-US-QFg"/>
-                        <barButtonItem title="美景" id="d0Y-EJ-C39"/>
-                        <barButtonItem title="美食" id="PQf-xa-7vT"/>
-                        <barButtonItem title="段子" id="n8C-Mh-LPo">
+                        <barButtonItem title="美女" width="70" style="plain" id="tlP-SD-rdw"/>
+                        <barButtonItem title="健身" width="70" style="plain" id="Fld-Wn-Wm0"/>
+                        <barButtonItem title="美食" width="70" style="plain" id="PQf-xa-7vT"/>
+                        <barButtonItem title="段子" width="70" style="plain" id="n8C-Mh-LPo">
                             <connections>
                                 <segue destination="4TO-B5-gB5" kind="push" id="Hp9-qY-cFa"/>
                             </connections>
