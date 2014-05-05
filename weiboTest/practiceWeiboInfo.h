@@ -10,8 +10,8 @@
 #import "SinaWeibo.h"
 //#import "practiceViewController.h"
 
-#define kAppKey             @"853428395"
-#define kAppSecret          @"eabfcc0861310caf484c983d794387b9"
+#define kAppKey             @"xxx"
+#define kAppSecret          @"xxx"
 #define kAppRedirectURI     @"https://api.weibo.com/oauth2/default.html"
 #ifndef kAppKey
 #error
